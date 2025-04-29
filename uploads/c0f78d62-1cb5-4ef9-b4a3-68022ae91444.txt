@@ -1,0 +1,40 @@
+
+
+1). You are working on a flight booking system that displays recent bookings. The system 
+receives an array of flight booking objects containing the flight ID and booking time (in 
+YYYY-MM-DD HH:mm:ss format). 
+The booking records are stored in the order they were made, but the frontend requires the latest 
+bookings to be shown first. 
+ 
+ 
+2). You are building an e-commerce platform where customers can place orders. Each order 
+contains multiple products, and each product has a unique ID, name, and quantity. However, 
+sometimes a product appears multiple times within the same order due to user mistakes. 
+Your system receives data in the following format: 
+[ 
+  { 
+  orderId: "O101", 
+  products: [ 
+      { id: "P1", name: "Laptop", quantity: 1 
+      }, 
+      { id: "P2", name: "Mouse", quantity: 2 
+      }, 
+      { id: "P1", name: "Laptop", quantity: 1 
+      } 
+    ] 
+  }, 
+  { 
+  orderId: "O102", 
+  products: [ 
+      { id: "P3", name: "Keyboard", quantity: 1 
+      }, 
+      { id: "P2", name: "Mouse", quantity: 1 
+      }, 
+      { id: "P3", name: "Keyboard", quantity: 1 
+      } 
+    ] 
+  } 
+] 
+The system should merge duplicate products within each order, summing up their quantities 
+instead of keeping separate entries. 
+ 

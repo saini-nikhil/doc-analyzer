@@ -1,0 +1,43 @@
+
+
+Nikhil Saini
+Full Stack Web Developer
+9457885414#1nikhilsaini234@gmail.com+Moradabad, UP
+Portfolio§GitHubïLinkedIn
+Education
+Masai School, BengaluruJuly 2024 - Present
+Full Stack Web Development
+IFTM UniversityOctober 2021 - August 2024
+Diploma in Computer Science (Polytechnic)
+Technical Skills
+FrontendHTML, CSS, JavaScript, React, Responsive Web Design, Tailwind CSS
+BackendNode.js, Express.js, Firebase, RESTful APIs, MongoDB
+Tools & Version ControlGit, GitHub, Netlify, Vercel, Firebase
+Soft Skills
+Problem-Solving, Teamwork, Adaptability, Leadership
+Projects
+Ai Food FinderLive Demo — GitHub Repo
+– Tech Stack:JavaScript, React, Google Maps API, Firebase, Gemini AI, Web Speech API
+–Developed an AI-powered voice assistant to recommend top restaurants using JavaScript and React.
+–Integrated Google Maps API for fetching and displaying nearby restaurant details.
+–Built an AI-based recipe generator with React components for a seamless user experience.
+–Implemented Firebase Authentication for secure login and personalized user experiences.
+–Integrated Gemini AI-powered chatbot for enhanced user interactions.
+MealMasterLive Demo — GitHub Repo
+– Tech Stack:React.js, Firebase, Context API, Tailwind CSS, Gemini AI, Firebase Authentication,
+–Led a team to design and implement the frontend using React.js.
+–Implemented Firebase Authentication for secure user access.
+–Used Context API for state management and implemented calorie and macronutrient tracking.
+–Developed a grocery list generator and meal prep reminders to enhance the user experience.
+–Designed a responsive UI with Tailwind CSS, ensuring cross-device compatibility.
+Nutri ScanLive Demo — GitHub Repo
+– Tech Stack:Node.js, Express.js, MongoDB, React.js
+–Developed dynamic APIs using Node.js and Express.js to manage QR-based dish inventory.
+–Integrated MongoDB for efficient data retrieval and management, optimizing real-time calorie calculation
+with React.js.
+–Implemented frontend components with React.js for interactive display and calculation of nutritional
+information.
+Achievements
+Masai Speaking MarathonMasai School, Bengaluru
+xto10X Hackathon by MasaiMasai School, Bengaluru
+xto10X Hackathon (Second Edition) - Secured 2nd PositionMasai School, Bengaluru
