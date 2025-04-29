@@ -4,7 +4,7 @@ import FileUpload from "./FileUpload";
 import AnalysisSettings from "./AnalysisSettings";
 import AnalysisResults from "./AnalysisResults";
 
-const BACKEND_URL = 'http://localhost:5000';
+const BACKEND_URL = import.meta.env.VITE_RENDER_URL
 
 // Example chain-of-prompts
 const DEFAULT_PROMPTS = [
