@@ -86,6 +86,9 @@ async function callAIWithRetry(prompt, retries = 2, backoff = 300) {
   }
 }
 
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK' });}) 
+
 // File upload endpoint
 app.post('/upload', upload.single('document'), async (req, res) => {
   if (!req.file) {
