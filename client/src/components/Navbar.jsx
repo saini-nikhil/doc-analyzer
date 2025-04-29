@@ -30,7 +30,7 @@ const Navbar = () => {
             </Link>
           ) : (
             <a 
-              href="https://github.com/yourusername/doc-analyzer" 
+              href="https://github.com/saini-nikhil/doc-analyzer" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-white hover:text-purple-200 transition-colors"
