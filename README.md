@@ -69,7 +69,7 @@ A powerful document analysis application that uses AI to extract insights, summa
 
    Create a `.env` file in the client directory with:
    ```
-   VITE_RENDER_URL=http://localhost:5000
+   VITE_RENDER_URL=your_backend_url
    ```
 
 4. Start the development servers
@@ -83,7 +83,7 @@ A powerful document analysis application that uses AI to extract insights, summa
    npm run dev
    ```
 
-5. Open your browser and navigate to `http://localhost:5173`
+5. Open your browser and navigate to `https://doc-analyzer-86n6.vercel.app/`
 
 ## Usage
 
@@ -110,6 +110,3 @@ The application includes a caching system that stores AI responses to improve pe
 
 
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
