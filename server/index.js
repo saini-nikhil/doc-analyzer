@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 const { GridFSBucket } = require('mongodb');
 const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
+const { aiResponseCache, generateCacheKey } = require('./cache');
 
 dotenv.config();
 
@@ -49,8 +50,20 @@ const upload = multer({
 // Helper function for delay (used in retry logic)
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-// Helper function to call AI API with exponential backoff retry
+// Helper function to call AI API with exponential backoff retry and caching
 async function callAIWithRetry(prompt, retries = 2, backoff = 300) {
+  // Generate a cache key for this prompt
+  const cacheKey = generateCacheKey(prompt);
+  
+  // Check if we have a cached response
+  const cachedResponse = await aiResponseCache.get(cacheKey);
+  if (cachedResponse) {
+    console.log('Cache hit! Using cached AI response');
+    return cachedResponse;
+  }
+  
+  console.log('Cache miss. Calling AI API...');
+  
   try {
     const response = await axios.post(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiApiKey}`,
@@ -69,7 +82,12 @@ async function callAIWithRetry(prompt, retries = 2, backoff = 300) {
         response.data.candidates[0].content && 
         response.data.candidates[0].content.parts && 
         response.data.candidates[0].content.parts.length > 0) {
-      return response.data.candidates[0].content.parts[0].text;
+      const result = response.data.candidates[0].content.parts[0].text;
+      
+      // Cache the successful response
+      await aiResponseCache.put(cacheKey, result);
+      
+      return result;
     } else if (response.data.promptFeedback && response.data.promptFeedback.blockReason) {
       throw new Error(`Gemini API blocked the request: ${response.data.promptFeedback.blockReason}`);
     } else {
@@ -230,6 +248,22 @@ app.post('/analyze', async (req, res) => {
   }
 });
 
+// Add endpoint to get cache statistics
+app.get('/cache/stats', (req, res) => {
+  res.json(aiResponseCache.getStats());
+});
+
+// Add endpoint to clear the cache
+app.post('/cache/clear', (req, res) => {
+  aiResponseCache.clear()
+    .then(() => {
+      res.json({ message: 'Cache cleared successfully' });
+    })
+    .catch(error => {
+      res.status(500).json({ error: `Failed to clear cache: ${error.message}` });
+    });
+});
+
 // Start the server
 app.listen(port, () => {
   // Create uploads directory if it doesn't exist
@@ -238,4 +272,5 @@ app.listen(port, () => {
     fs.mkdirSync(uploadsDir, { recursive: true });
   }
   console.log(`Server listening on port ${port}`);
+  console.log(`Cache size: ${process.env.CACHE_SIZE || 100} entries`);
 });
