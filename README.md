@@ -42,7 +42,7 @@ A powerful document analysis application that uses AI to extract insights, summa
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/doc-analyzer.git
+   git clone https://github.com/saini-nikhil/doc-analyzer.git
    cd doc-analyzer
    ```
 
